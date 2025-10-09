@@ -1,0 +1,72 @@
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# IntelliJ out folder
+out/
+
+### Java ###
+*.class
+*.log
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# JVM crash logs
+hs_err_pid*
+
+### Maven ###
+target/
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+!/.mvn/wrapper/maven-wrapper.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Maven wrapper command files
+mvn
+mvn.cmd
+mvnw
+mvnw.cmd
+
+# Maven local cache (if inside project)
+.m2/
+.m2/repository/
+
+### Spring Boot ###
+# Embedded Tomcat logs
+*.log
+
+# Spring Boot dev tools restart folder
+.spring-boot-devtools.properties
+
+### OS generated files ###
+.DS_Store
+Thumbs.db
+
+### Others ###
+*.swp
+*~
+
+
+# H2 database files
+*.mv.db
+*.trace.db
