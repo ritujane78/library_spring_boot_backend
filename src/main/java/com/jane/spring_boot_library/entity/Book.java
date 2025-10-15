@@ -1,6 +1,6 @@
 package com.jane.spring_boot_library.entity;
 import lombok.Data;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 @Entity
