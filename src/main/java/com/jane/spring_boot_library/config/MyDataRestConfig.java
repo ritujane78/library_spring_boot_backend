@@ -1,6 +1,7 @@
 package com.jane.spring_boot_library.config;
 
 import com.jane.spring_boot_library.entity.Book;
+import com.jane.spring_boot_library.entity.Message;
 import com.jane.spring_boot_library.entity.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -19,6 +20,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         config.exposeIdsFor(Book.class);
         config.exposeIdsFor(Review.class);
+        config.exposeIdsFor(Message.class);
 
         disableHttpMethods(Book.class, config, theUnSupportedActions);
         disableHttpMethods(Review.class, config, theUnSupportedActions);
@@ -31,7 +33,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
     private void disableHttpMethods(Class libClass, RepositoryRestConfiguration config, HttpMethod[] theUnSupportedActions) {
         config.getExposureConfiguration()
                 .forDomainType(libClass)
-                .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(theUnSupportedActions)))
-                .withCollectionExposure(((metdata, httpMethods) -> httpMethods.disable(theUnSupportedActions)));
+                .withItemExposure(((metadata, httpMethods) -> httpMethods.disable(theUnSupportedActions)))
+                .withCollectionExposure(((metadata, httpMethods) -> httpMethods.disable(theUnSupportedActions)));
     }
 }
