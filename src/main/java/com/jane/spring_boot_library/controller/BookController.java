@@ -22,11 +22,11 @@ public class BookController {
     }
 
     @GetMapping("/secure/currentloans")
-    public List<ShelfCurrentLoansResponse> currentLoans(@AuthenticationPrincipal Jwt jwt)
+    public List<ShelfCurrentLoansResponse> currentLoans(@RequestParam String userEmail)
             throws Exception
     {
 //        String userEmail = jwt.getClaim("email");
-        String userEmail = "ritujane78@gmail.com";
+//        String userEmail = "ritujane78@gmail.com";
         return bookService.currentLoans(userEmail);
     }
 
