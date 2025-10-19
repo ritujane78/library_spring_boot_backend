@@ -13,10 +13,10 @@ public class MessageService {
     public MessageService(MessageRepository messageRepository) {
         this.messageRepository = messageRepository;
     }
-    public void postMessage(Message messageRequest, String usrEmail){
+    public void postMessage(Message messageRequest, String userEmail){
         Message message = new Message(messageRequest.getTitle(), messageRequest.getQuestion());
 
-        message.setUserEmail(usrEmail);
+        message.setUserEmail(userEmail);
 
         System.out.println(message);
 

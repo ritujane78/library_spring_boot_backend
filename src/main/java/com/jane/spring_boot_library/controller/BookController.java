@@ -31,18 +31,18 @@ public class BookController {
     }
 
     @PutMapping("/secure/checkout")
-    public Book checkoutBook(@AuthenticationPrincipal Jwt jwt,
+    public Book checkoutBook(@RequestParam String userEmail,
                              @RequestParam Long bookId) throws Exception{
 
-        String userEmail="ritujane78@gmail.com";
+//        String userEmail="ritujane78@gmail.com";
         return bookService.checkoutBook(userEmail, bookId);
 
     }
 
     @GetMapping("/secure/ischeckedout/byuser")
-    public Boolean checkoutBookByUser(@AuthenticationPrincipal Jwt jwt,
+    public Boolean checkoutBookByUser(@RequestParam String userEmail,
                                       @RequestParam Long bookId) {
-        String userEmail = "ritujane78@gmail.com";
+//        String userEmail = "ritujane78@gmail.com";
 //        System.out.println(userEmail);
 //        System.out.println(jwt.getTokenValue());
         return bookService.checkOutBookByUser(userEmail, bookId);
@@ -50,26 +50,25 @@ public class BookController {
 
 
     @GetMapping("/secure/currentloans/count")
-    public int currentLoansCount(@AuthenticationPrincipal Jwt jwt){
-        String userEmail="";
-        if(jwt.getTokenValue()!=null){
-            userEmail = "ritujane78@gmail.com";
-        }
+    public int currentLoansCount(@RequestParam String userEmail){
+//        String userEmail="";
+//        if(jwt.getTokenValue()!=null){
+//            userEmail = "ritujane78@gmail.com";
+//        }
         return bookService.loansCount(userEmail);
     }
 
     @PutMapping("/secure/return")
-    public void returnBook(@RequestParam Long bookId) throws Exception{
-        String userEmail = "ritujane78@gmail.com";
+    public void returnBook(@RequestParam Long bookId, @RequestParam String userEmail) throws Exception{
+//        String userEmail = "ritujane78@gmail.com";
 
         bookService.returnBook(userEmail,bookId);
     }
 
     @PutMapping("/secure/renew/loan")
-    public void renewLoan(@AuthenticationPrincipal Jwt jwt,
-                          @RequestParam Long bookId) throws Exception {
+    public void renewLoan(@RequestParam Long bookId, @RequestParam String userEmail) throws Exception {
 //        String userEmail = jwt.getClaim("email");
-        String userEmail = "ritujane78@gmail.com";
+//        String userEmail = "ritujane78@gmail.com";
         bookService.renewLoan(userEmail, bookId);
     }
 }

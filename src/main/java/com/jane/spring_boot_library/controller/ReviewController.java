@@ -17,12 +17,12 @@ public class ReviewController {
     public ReviewController(ReviewService reviewService) {
         this.reviewService = reviewService;
     }
-    @GetMapping("/secure/user/book")
-    public Boolean reviewBookByUser(@AuthenticationPrincipal Jwt jwt,
-                                    @RequestParam Long bookId) throws Exception {
-//        String userEmail = jwt.getClaim("email");
 
-        String userEmail = "ritujane78@gmail.com";
+    @GetMapping("/secure/user/book")
+    public Boolean reviewBookByUser(@RequestParam String userEmail, @RequestParam Long bookId) throws Exception {
+//        String userEmail = jwt.getClaim("email");
+//        String userEmail = "ritujane78@gmail.com";
+
         if (userEmail == null) {
             throw new Exception("User email is missing");
         }

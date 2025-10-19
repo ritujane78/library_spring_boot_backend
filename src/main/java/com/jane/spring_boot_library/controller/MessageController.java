@@ -16,7 +16,6 @@ public class MessageController {
 
     @PostMapping("/secure/add/message")
     public void postMessage(@RequestParam String userEmail, @RequestBody Message message){
-        System.out.println(userEmail);
         messageService.postMessage(message,userEmail);
     }
 }
