@@ -20,6 +20,31 @@ public class AdminController {
     public AdminController(AdminService adminService) {
         this.adminService = adminService;
     }
+    @PutMapping("/secure/increase/book/quantity")
+    public void increaseBookQuantity(@AuthenticationPrincipal Jwt jwt,
+                                     @RequestParam Long bookId) throws Exception {
+        List<String> roles = jwt.getClaimAsStringList("https://jane-react-library.com/roles");
+        String admin = roles != null && !roles.isEmpty() ? roles.get(0) : null;
+
+        if (admin == null || !admin.equals("admin")) {
+            throw new Exception("Administration page only");
+        }
+        adminService.increaseBookQuantity(bookId);
+    }
+    @PutMapping("/secure/decrease/book/quantity")
+    public void decreaseBookQuantity(@AuthenticationPrincipal Jwt jwt,
+                                     @RequestParam Long bookId) throws Exception{
+
+        List<String> roles = jwt.getClaimAsStringList("https://jane-react-library.com/roles");
+
+        String admin = roles !=null && !roles.isEmpty()? roles.get(0) : null;
+
+        if(admin == null || !admin.equals("admin")){
+            throw new Exception("Administration page only");
+        }
+        adminService.decreaseBookQuantity(bookId);
+
+    }
 
     @PostMapping("/secure/add/book")
     public void postBook(@AuthenticationPrincipal Jwt jwt,
@@ -31,6 +56,18 @@ public class AdminController {
             throw new Exception("Administration page only");
         }
         adminService.postBook(addBookRequest);
+    }
+
+    @DeleteMapping("/secure/delete/book")
+    public void deleteBook(@AuthenticationPrincipal Jwt jwt,
+                           @RequestParam Long bookId) throws Exception {
+        List<String> roles = jwt.getClaimAsStringList("https://jane-react-library.com/roles");
+        String admin = roles != null && !roles.isEmpty() ? roles.get(0) : null;
+
+        if (admin == null || !admin.equals("admin")) {
+            throw new Exception("Administration page only");
+        }
+        adminService.deleteBook(bookId);
     }
 
 }
