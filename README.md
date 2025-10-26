@@ -14,12 +14,9 @@ This is Backend code for a **Jane Library Application** built using:
 
 | Technology | Version |
 |-----------|---------|
-| Java | 21 |
-| Spring Boot | 3.5.6 |
-| React | 19.2.2 |
-| TypeScript | 4.9.5 |
-| Bootstrap CSS | 3.0.2 |
-| Stripe | 9.14.0 |
+| Java | 21      |
+| Spring Boot | 3.5.6   |
+| Stripe | 30.0.0  |
 
 ---
 
